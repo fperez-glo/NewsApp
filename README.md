@@ -28,7 +28,7 @@ Otras librerias que se utilizan:
 
 
 
-  --- Ventajas de la arquitectura: ---
+--- Ventajas de la arquitectura: ---
 
 - El proyecto está diseñado para ser modular (framework agnostic), lo que significa que si se quisiera mover a otro framework de Javascript (como puede ser Vue por ejemplo) se podria reutilizar la mayor parte de la aplicacion. (Rara vez sucede..)
 - Se puede agregar, remover o extender funcionalidades facilmente sin afectar el resto del código.
