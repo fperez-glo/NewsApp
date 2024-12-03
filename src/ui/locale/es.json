@@ -1,0 +1,58 @@
+{
+  "common": {
+    "yes": "Si",
+    "no": "No",
+    "active": "Activo",
+    "inactive": "Inactivo",
+    "actions": "Acciones",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "back": "Volver",
+    "search": "Buscar",
+    "add": "Agregar",
+    "close": "Cerrar",
+    "confirm": "Confirmar",
+    "confirmDelete": "¿Está seguro que desea eliminar el registro?",
+    "requiredField": "Campo requerido",
+    "invalidField": "Campo invalido",
+    "inputPlaceholder": "Ingrese un valor",
+    "noData": "No se encontraron resultados",
+    "uploading": "Cargando..",
+    "preview": "Previsualizar",
+    "stop": "Detener",
+    "pendingUpload": "Pendiente de carga",
+    "pending": "Pendiente.."
+  },
+  "formats": {
+    "time": "HH:mm",
+    "date": "DD/MM/YYYY",
+    "stringDate": "DD MMMM YYYY",
+    "dateTime": "DD/MM/YYYY HH:mm"
+  },
+  "config": {
+    "language": {
+      "title": "Idioma",
+      "en": "Inglés",
+      "es": "Español"
+    },
+    "theme": "Tema",
+    "light": "Claro",
+    "dark": "Oscuro"
+  },
+  "bottomTabs": {
+    "home": "Para ti",
+    "bookmarks": "Marcadores",
+    "search": "Buscar",
+    "config": "Configuración",
+    "users": "Usuarios"
+  },
+  "header": {
+    "search": "Buscar",
+    "bookmark": "Marcar",
+    "config": "Configuración",
+    "users": "Usuarios",
+    "news": "Noticias"
+  }
+}

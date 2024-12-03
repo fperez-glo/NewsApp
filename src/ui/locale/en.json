@@ -1,0 +1,58 @@
+{
+  "common": {
+    "yes": "Yes",
+    "no": "No",
+    "active": "Active",
+    "inactive": "Inactive",
+    "actions": "Actions",
+    "edit": "Edit",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "save": "Save",
+    "back": "Back",
+    "search": "Search",
+    "add": "Add",
+    "close": "Close",
+    "confirm": "Confirm",
+    "confirmDelete": "Are you sure you want to delete this?",
+    "requiredField": "Mandatory field",
+    "invalidField": "Invalid field",
+    "inputPlaceholder": "Enter a value",
+    "noData": "No data",
+    "uploading": "Uploading..",
+    "preview": "Preview",
+    "stop": "Stop",
+    "pendingUpload": "Pending upload",
+    "pending": "Pending.."
+  },
+  "formats": {
+    "time": "HH:mm",
+    "date": "MM/DD/YYYY",
+    "stringDate": "DD MMMM YYYY",
+    "dateTime": "MM/DD/YYYY HH:mm"
+  },
+  "config": {
+    "language": {
+      "title": "Language",
+      "en": "English",
+      "es": "Spanish"
+    },
+    "theme": "Theme",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "bottomTabs": {
+    "home": "Home",
+    "bookmarks": "Bookmarks",
+    "search": "Search",
+    "config": "Config",
+    "users": "Users"
+  },
+  "header": {
+    "search": "Search",
+    "bookmark": "Bookmark",
+    "config": "Config",
+    "users": "Users",
+    "news": "News"
+  }
+}

@@ -1,0 +1,1 @@
+export type RemoveBookmarkRequest = string;
