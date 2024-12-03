@@ -1,5 +1,5 @@
   
-  ![Screenshot_2](https://expo.dev/static/changelog/2024-05-07/og-image.png)
+  ![banner](https://github.com/fperez-glo/NewsApp/blob/development/exp51.png)
 
 El proyecto es una aplicación de noticias construida con un enfoque Clean Architecture aplicado al Frontend junto con el patron MVVM. Es una aproximacion ya que hay N formas de aplicarla y cada uno a su manera.
 Consta de 3 capas, una capa de Data (o acceso a datos), una capa de Dominio (o lógica de negocios) y una capa de UI (o presentación).
@@ -21,6 +21,13 @@ Otras librerias que se utilizan:
 - "react-native-async-storage/async-storage" para guardar los datos en el dispositivo. Se utilizo para almacenar la configuracion y los bookmarks de las noticias.
 - "axios" para las requests HTTP.
 
+
+--- Estructura del proyecto ---
+
+![projectStructure](https://github.com/fperez-glo/NewsApp/blob/development/projectStructure.png)
+
+
+
   --- Ventajas de la arquitectura: ---
 
 - El proyecto está diseñado para ser modular (framework agnostic), lo que significa que si se quisiera mover a otro framework de Javascript (como puede ser Vue por ejemplo) se podria reutilizar la mayor parte de la aplicacion. (Rara vez sucede..)
@@ -28,6 +35,7 @@ Otras librerias que se utilizan:
 - Por un lado mejora la estructura del proyecto ya que lo que se intenta es que cada capa cumpla con determinada funcion. Por ejemplo en el caso de la capa de presentacion o UI se beneficia ampliamente ya que queda muy desaclopada del negocio y como veran los componentes son super escuetos en cuanto a lineas de codigo. Solo se encargan de presentar la informacion que le envie el ViewModel.
 - Otra ventaja que tiene es que en caso de tener diferentes fuentes de datos externas, este patron permite que se pueda mapear facilmente y que las demas capas no se enteren de donde provienen los datos.
 - Desacoplamiento de responsabilidades, cada capa se encarga de un solo tema y no de otros. Esto lo hace a traves contratos/abstracciones.
+
 
   --- Desventajas que yo le veo a este patron: ---
 
@@ -47,7 +55,10 @@ PD: Con respecto a la carga de las NOTICIAS y USUARIOS. Las notificas las deje m
 Aclaraciones: Con respecto a Android no tuve inconvenientes (se ejecuto con un Pixel 4 API 30), en cuanto a IOS les pido disculpas ya que no pude buildearlo. Tengo algun problema con las dependencias del SDK 51 de Expo y Xcode (pods, version de ruby). En el medio, tambien tuve actualizaciones al SO de mi maquina entre otras cosas y algo se rompio ahi (creeria que es un tema de configuracion pero no pude solucionarlo).
 No quiero que suene a excusas pero no queria perder mas tiempo en eso sinceramente, lo voy a revisar con mas tiempo.
 
-Instrucciones para Levantar y Ejecutar el Proyecto
+
+
+
+--- Instrucciones para Levantar y Ejecutar el Proyecto ---
 
 1. Requisitos previos:
 
