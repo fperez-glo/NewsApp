@@ -1,3 +1,6 @@
+  
+  ![Screenshot_2](https://expo.dev/static/changelog/2024-05-07/og-image.png)
+
 El proyecto es una aplicación de noticias construida con un enfoque Clean Architecture aplicado al Frontend junto con el patron MVVM. Es una aproximacion ya que hay N formas de aplicarla y cada uno a su manera.
 Consta de 3 capas, una capa de Data (o acceso a datos), una capa de Dominio (o lógica de negocios) y una capa de UI (o presentación).
 A su vez utiliza algunas librerias externas como mobx, mobx-react-lite y awilix que acompañan y facilitan la implementacion de este enfoque y a utilizar algunos de los principios SOLID.
