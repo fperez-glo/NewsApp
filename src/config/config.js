@@ -4,17 +4,11 @@ const config = {
   },
   ui: {
     componentsConfig: {
-      searchInputDelay: 300,
-      dataTableRecordsLimit: 200,
-      dataTablePageSize: 20,
+      searchInputDebounceTime: 300,
     },
     users: {
       pageSize: 20,
       recordsPerRequest: 200,
-      profilePicture: {
-        width: 1280,
-        height: 720,
-      },
     },
   },
 };
