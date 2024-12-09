@@ -34,7 +34,7 @@ Otras librerias que se utilizan:
 - Se puede agregar, remover o extender funcionalidades facilmente sin afectar el resto del código.
 - Por un lado mejora la estructura del proyecto ya que lo que se intenta es que cada capa cumpla con determinada funcion. Por ejemplo en el caso de la capa de presentacion o UI se beneficia ampliamente ya que queda muy desaclopada del negocio y como veran los componentes son super escuetos en cuanto a lineas de codigo. Solo se encargan de presentar la informacion que le envie el ViewModel.
 - Otra ventaja que tiene es que en caso de tener diferentes fuentes de datos externas, este patron permite que se pueda mapear facilmente y que las demas capas no se enteren de donde provienen los datos.
-- Desacoplamiento de responsabilidades, cada capa se encarga de un solo tema y no de otros. Esto lo hace a traves contratos/abstracciones.
+- Desacoplamiento de responsabilidades. Cada capa tiene su unico propósito y se comunican con las demás a traves de contratos/abstracciones que en este proyecto estan representadas como interfaces de TypeScript.
 
 
   --- Desventajas que yo le veo a este patron: ---
@@ -42,7 +42,7 @@ Otras librerias que se utilizan:
 - Depende mucho del alcance del proyecto y la escalabilidad que se le quiera dar a la aplicacion.
 - Para aplicaciones como esta que son muy chicas no tiene mucho sentido aplicarlo, para eso esta el enfoque clasico que se aplica en la mayoria de apps y que vez en youtube de los influencers de programacion.
 - Tiene mucho boilerplate/repeticion de codigo en cuando a capas y archivos que se tienen que generar para implementar el patron (Repositories, casos de uso, entidades, DTO's, ViewModels).
-- El equipo tiene que estar alineado con el patron ya que sino se la estructura. Puede que algunos de los devs no esten muy familiarizados y lleve curva de aprendizaje al principio.
+- El equipo tiene que estar alineado con el patron ya que sino es muy facil se pierda y se apliquen malas practicas. A su vez puede que algunos de los devs no esten muy familiarizados y se traduzca en una curva de aprendizaje al principio.
 
 En cuando a los componentes visuales estan en carpetas con un enfoque Atomic Desing que consta de componentes que van desde Atoms, Molecules, Organisms y Page.
 
