@@ -6,13 +6,19 @@ import NewsList from '../../../components/molecules/news/NewsList';
 
 const HomeScreen = () => {
   const viewModel = useContainerInjection<NewsViewModel>('NewsViewModel');
-
-  if (viewModel.isLoading) {
+  const isLoading = viewModel.isLoading;
+  const news = viewModel.news;
+  if (isLoading) {
     return Array.from({ length: 10 }).map((_, index) => <NewsCardLoadingSkeleton key={index} />);
   }
 
   return (
-    <NewsList data={viewModel.news} onRefresh={() => viewModel.fetchNewsData()} refreshing={viewModel.isLoading} />
+    <NewsList
+      data={news}
+      onRefresh={() => viewModel.fetchNewsData()}
+      refreshing={isLoading}
+      onToggleBookmark={(itemId) => viewModel.toggleBookMark(itemId)}
+    />
   );
 };
 

@@ -1,12 +1,15 @@
+import { User } from './User';
+
 export interface NewsParams {
   id: string;
   title: string;
   excerpt: string;
   content: string;
   imageUrl: string;
-  time: string;
+  readTime: string;
   category: string;
-  author: string;
+  authorId: string;
+  author: User;
   tags: {
     id: string;
     title: string;
@@ -20,9 +23,10 @@ export class News {
   excerpt: string;
   content: string;
   imageUrl: string;
-  time: string;
+  readTime: string;
   category: string;
-  author: string;
+  authorId: string;
+  author: User;
   tags: {
     id: string;
     title: string;
@@ -35,8 +39,9 @@ export class News {
     this.excerpt = params.excerpt;
     this.content = params.content;
     this.imageUrl = params.imageUrl;
-    this.time = params.time;
+    this.readTime = params.readTime;
     this.category = params.category;
+    this.authorId = params.authorId;
     this.author = params.author;
     this.tags = params.tags;
     this.bookmark = params.bookmark;

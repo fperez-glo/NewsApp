@@ -15,7 +15,7 @@ interface UserCardProps {
 const UserCard = ({ id, name, email, phone }: UserCardProps) => {
   const colorSchema = useThemeDefaultColor();
   return (
-    <TouchableOpacity activeOpacity={0.65} className="border-b last:border-b-1 border-gray-300">
+    <TouchableOpacity activeOpacity={0.65} className="border-b last:border-b-1 border-gray-300 h-28">
       <ThemedView className="p-4 flex gap-4 flex-1 flex-row ">
         <View className="flex-1">
           <View className="flex-1">

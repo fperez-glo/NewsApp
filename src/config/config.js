@@ -1,6 +1,7 @@
 const config = {
   api: {
-    baseEndpoint: 'https://jsonplaceholder.typicode.com', // process.env.EXPO_PUBLIC_API_URL,
+    // baseEndpoint: 'https://jsonplaceholder.typicode.com', // process.env.EXPO_PUBLIC_API_URL,
+    baseEndpoint: 'https://www.jsonplaceholder.org',
   },
   ui: {
     componentsConfig: {

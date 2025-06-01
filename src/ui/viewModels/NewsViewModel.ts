@@ -1,4 +1,4 @@
-import { action, makeObservable, observable, toJS } from 'mobx';
+import { action, makeObservable, observable } from 'mobx';
 import { GetNewsUseCase } from '../../domain/useCases/news/getNews';
 import { GetNewsDetailUseCase } from '../../domain/useCases/news/getNewsById';
 import { News } from '../../domain/entities/News';
