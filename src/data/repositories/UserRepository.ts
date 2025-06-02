@@ -13,7 +13,7 @@ export class UserRepositoryImpl implements UserRepository {
 
   public async getUsers(): Promise<User[]> {
     const usersResponse = await this._http.get(Endpoint.USERS);
-    const users = usersResponse.data.map(UserModel.fromRawJson);
+    const users = usersResponse.data.map(UserModel.fromRawJson) as UserModel[];
     return users.map((b: UserModel) => b.toDomain());
   }
 }

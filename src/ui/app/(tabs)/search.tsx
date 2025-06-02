@@ -1,6 +1,5 @@
 import { View, TextInput } from 'react-native';
 import React, { useCallback } from 'react';
-import HomeScreen from './(news)/index';
 import { Tabs, useFocusEffect } from 'expo-router';
 import { useThemeDefaultColor } from '../../hooks/useThemeColor';
 import SearchBar from '../../components/molecules/news/SearchBar';
@@ -29,12 +28,18 @@ const SearchScreen = () => {
       <Tabs.Screen
         options={{
           headerShown: true,
-          headerTitle: '',
-          header() {
-            return <SearchBar ref={inputRef} onSearch={handleSearch} />;
-          },
+          // headerTitle: '',
+          // header: (props) => <SearchBar ref={inputRef} onSearch={handleSearch} />,
+          // header() {
+          //   return (
+          //     <SafeAreaView style={{ backgroundColor: 'red' }}>
+          //       <SearchBar ref={inputRef} onSearch={handleSearch} />
+          //     </SafeAreaView>
+          //   );
+          // },
         }}
       />
+      <SearchBar ref={inputRef} onSearch={handleSearch} />
       <NewsList
         data={viewModel.filteredNews}
         onRefresh={() => viewModel.fetchNewsData()}

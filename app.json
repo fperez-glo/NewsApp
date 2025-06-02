@@ -21,6 +21,7 @@
         "foregroundImage": "./src/ui/assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
+      "softwareKeyboardLayoutMode": "pan",
       "package": "com.fperez.newsapp"
     },
     "web": {

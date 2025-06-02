@@ -56,13 +56,15 @@ const NewsDetailScreen = () => {
             <Image className="h-full w-full text-gray-700" src={newsDetail?.imageUrl} alt={`newsPicture-${id}`} />
           </View>
           <View className="px-4 flex-col gap-3">
-            <NewsTopicInfo topic={newsDetail?.category} readTime={newsDetail?.time} />
+            <NewsTopicInfo topic={newsDetail?.category} readTime={newsDetail?.readTime} />
             <ThemedText type="title" className="text-3xl font-bold">
               {newsDetail?.title}
             </ThemedText>
-            <ThemedText type="secondaryText" className="font-semibold">
-              Por {newsDetail?.author}
-            </ThemedText>
+            {newsDetail?.author?.name && (
+              <ThemedText type="secondaryText" className="font-semibold">
+                Por {newsDetail.author.name}
+              </ThemedText>
+            )}
             <ThemedText>{newsDetail?.content}</ThemedText>
 
             {newsDetail?.tags && (

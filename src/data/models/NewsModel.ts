@@ -1,6 +1,7 @@
 import { News } from '../../domain/entities/News';
+import { UserModel } from './UserModel';
 
-interface ConstructorParams {
+interface ConstructorParams_OLD {
   id: string;
   title: string;
   excerpt: string;
@@ -16,15 +17,32 @@ interface ConstructorParams {
   bookmark: boolean;
 }
 
+export interface ConstructorParams {
+  id: string;
+  slug: string;
+  url: string;
+  title: string;
+  content: string;
+  image: string;
+  thumbnail: string;
+  status: string;
+  category: string;
+  publishedAt: string;
+  updatedAt: string;
+  userId: string;
+  author: UserModel;
+}
+
 export class NewsModel {
   public id: string;
   public title: string;
   public excerpt: string;
   public content: string;
   public imageUrl: string;
-  public time: string;
+  public readTime: string;
   public category: string;
-  public author: string;
+  public authorId: string;
+  public author: UserModel;
   public tags: {
     id: string;
     title: string;
@@ -34,18 +52,19 @@ export class NewsModel {
   constructor(params: ConstructorParams) {
     this.id = params.id;
     this.title = params.title;
-    this.excerpt = params.excerpt;
+    this.excerpt = params.content.split('.')[0];
     this.content = params.content;
-    this.imageUrl = params.imageUrl;
-    this.time = params.time;
+    this.imageUrl = params.image;
+    this.readTime = `${Math.ceil(params.content.length / 200).toString()}h`;
     this.category = params.category;
+    this.authorId = params.userId;
     this.author = params.author;
-    this.tags = params.tags;
-    this.bookmark = params.bookmark;
+    this.tags = [{ id: '1', title: params.slug }];
+    this.bookmark = false;
   }
 
   static fromRawJson = (rawJson: any): NewsModel => {
-    return new NewsModel(rawJson);
+    return new NewsModel({ ...rawJson, id: String(rawJson.id) });
   };
 }
 
@@ -57,5 +76,5 @@ declare module './NewsModel' {
 
 NewsModel.prototype.toDomain = function (): News {
   const data = this;
-  return new News(data);
+  return new News({ ...data, author: data.author?.toDomain() });
 };

@@ -3,23 +3,26 @@ import React from 'react';
 import { useThemeDefaultColor } from '../../hooks/useThemeColor';
 import { Bookmark, Home, Search, Settings, Users } from 'lucide-react-native';
 import { useTranslation } from 'react-i18next';
+import { Platform } from 'react-native';
 
 export default function TabLayout() {
   const colorScheme = useThemeDefaultColor();
   const { t } = useTranslation();
+  const isAndroid = Platform.OS === 'android';
 
   return (
     <Tabs
       screenOptions={{
+        tabBarHideOnKeyboard: true,
         tabBarActiveTintColor: colorScheme.primary,
         headerShown: false,
         tabBarStyle: {
-          height: 60,
+          height: isAndroid ? 56 : 90,
           backgroundColor: colorScheme.background,
         },
         tabBarItemStyle: {
-          paddingVertical: 10,
-          gap: 4,
+          paddingVertical: 4,
+          gap: 0,
         },
         tabBarLabelStyle: {
           fontSize: 12,
@@ -27,6 +30,8 @@ export default function TabLayout() {
         },
         headerStyle: {
           backgroundColor: colorScheme.background,
+          // backgroundColor: 'blue',
+          // height: isAndroid ? undefined : 80,
         },
         headerTitleStyle: {
           color: colorScheme.title,

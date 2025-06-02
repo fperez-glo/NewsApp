@@ -1,8 +1,10 @@
 import { News } from '../../domain/entities/News';
 import { NewsRepository } from '../../domain/repositories/newsRepository';
+import { Endpoint } from '../datasource/endpoint';
 import { HttpManager } from '../datasource/interface/HttpManager';
 import { LocalStorage } from '../datasource/interface/LocalStorage';
 import { NewsModel } from '../models/NewsModel';
+import { UserModel } from '../models/UserModel';
 import { NEWS_DATA } from '../NEWS';
 
 export class NewsRepositoryImpl implements NewsRepository {
@@ -10,26 +12,30 @@ export class NewsRepositoryImpl implements NewsRepository {
   private localStorage: LocalStorage;
 
   constructor({ HttpManager, LocalStorage }: { HttpManager: HttpManager; LocalStorage: LocalStorage }) {
-    this._http = HttpManager; //TODO: To make http request to the api
+    this._http = HttpManager;
     this.localStorage = LocalStorage;
   }
 
   public async getNews(): Promise<News[]> {
     const bookmarks = await this.localStorage.getItem('bookmarks');
-    const newsPromise = new Promise<News[]>((res, reject) => {
-      setTimeout(() => {
-        res(
-          NEWS_DATA.map(NewsModel.fromRawJson).map((b) => {
-            const bookmarksArr = bookmarks?.split(',');
-            if (bookmarksArr?.length) {
-              b.bookmark = bookmarksArr?.includes(b.id);
-            }
-            return b.toDomain();
-          }),
-        );
-      }, 500);
+    const newsResponse = await this._http.get(Endpoint.NEWS);
+    const news = newsResponse.data.map(NewsModel.fromRawJson) as NewsModel[];
+
+    // To fetch posts user data
+    const usersResponse = await this._http.get(Endpoint.USERS);
+    const users = usersResponse.data.map(UserModel.fromRawJson) as UserModel[];
+
+    return news.map((b) => {
+      const bookmarksArr = bookmarks?.split(',') || [];
+      if (bookmarksArr.length) {
+        b.bookmark = bookmarksArr.includes(b.id);
+      }
+      const user = users.find((u) => u.id === b.authorId);
+      if (user) {
+        b.author = user;
+      }
+      return b.toDomain();
     });
-    return newsPromise;
   }
 
   public getNewsByTopic(topicId: string): Promise<News[]> {
@@ -50,24 +56,29 @@ export class NewsRepositoryImpl implements NewsRepository {
 
   public async getNewsById(newsId: string): Promise<News> {
     const bookmarks = await this.localStorage.getItem('bookmarks');
-    const newsPromise = new Promise<News>((res, reject) => {
-      setTimeout(() => {
-        const news = NEWS_DATA.map(NewsModel.fromRawJson)
-          .map((b) => b.toDomain())
-          .find((b) => b.id == newsId);
-        if (news) {
-          const bookmarksArr = bookmarks?.split(',');
-          if (bookmarksArr?.length) {
-            news.bookmark = bookmarksArr?.includes(news.id);
-          }
-          res(news);
-        } else {
-          reject(new Error(`News with id ${newsId} not found`));
-        }
-      }, 200);
-    });
+    const newsResponse = await this._http.get(Endpoint.NEWS);
+    const newsModels = newsResponse.data.map(NewsModel.fromRawJson) as NewsModel[];
+    const newDetail = newsModels.find((b) => b.id === newsId);
 
-    return newsPromise;
+    if (!newDetail) {
+      throw new Error(`News with id ${newsId} not found`);
+    }
+
+    // To fetch posts user data
+    const usersResponse = await this._http.get(Endpoint.USERS);
+    const users = usersResponse.data.map(UserModel.fromRawJson) as UserModel[];
+    const user = users.find((b) => b.id === newDetail.authorId);
+    if (!user) {
+      console.warn(`User with id ${newDetail.authorId} not found`);
+    } else {
+      newDetail.author = user;
+    }
+
+    const bookmarksArr = bookmarks?.split(',') || [];
+    if (bookmarksArr.length) {
+      newDetail.bookmark = bookmarksArr.includes(newDetail.id);
+    }
+    return newDetail.toDomain();
   }
 
   public async addToBookmark(id: string) {
