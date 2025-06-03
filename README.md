@@ -46,16 +46,6 @@ Otras librerias que se utilizan:
 
 En cuando a los componentes visuales estan en carpetas con un enfoque Atomic Desing que consta de componentes que van desde Atoms, Molecules, Organisms y Page.
 
-PD: Con respecto a la carga de las NOTICIAS y USUARIOS. Las notificas las deje mockeadas con datos reales para que queden mejor visualmente pero en caso de tener que implementar la llamada a la API seria tan facil como:
-
-1.  Modificar el NewsModel (DTO) para adaptarlo al JSON que llega con los posts y asi mapearlo a la entidad de Dominio "News" (que es el que termina utilizando la APP).
-2.  Luego en el NewsRepository cambiar el metodo "getNews" y "getNewsById" para que ejecuten el metodo this.\_http.get("https://jsonplaceholder.typicode.com/posts") y this.\_http.get("https://jsonplaceholder.typicode.com/posts/{id}") respectivamente.
-    Con respecto a los USUARIOS, estos si se estan consumiendo desde el endpoint "https://jsonplaceholder.typicode.com/users".
-
-Aclaraciones: Con respecto a Android no tuve inconvenientes (se ejecuto con un Pixel 4 API 30), en cuanto a IOS les pido disculpas ya que no pude buildearlo. Tengo algun problema con las dependencias del SDK 51 de Expo y Xcode (pods, version de ruby). En el medio, tambien tuve actualizaciones al SO de mi maquina entre otras cosas y algo se rompio ahi (creeria que es un tema de configuracion pero no pude solucionarlo).
-No quiero que suene a excusas pero no queria perder mas tiempo en eso sinceramente, lo voy a revisar con mas tiempo.
-
-
 
 
 --- Instrucciones para Levantar y Ejecutar el Proyecto ---
