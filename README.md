@@ -53,9 +53,11 @@ En cuando a los componentes visuales estan en carpetas con un enfoque Atomic Des
 1. Requisitos previos:
 
    - Tener instalado Node.js (Yo tengo una version 22).
-   - Instalar Expo CLI globalmente: "npm install -g expo-cli"
+   - Instalar Expo CLI globalmente: "npm install -g expo-cli".
+   - Para Android tener instalado Android Studio con las herramientas SDK y un Emulador de dispositivos Android.
+   - Para iOS tener instalado xCode y alguna version del simulador de dispositivos iOS.
 
 2. Instalar dependencias: "npm install"
 3. Ejecutar el proyecto: "npm run android" o "npm run ios"
 
-En el package.json hay informacion de las veriones en el apartado de "engines".
+En el package.json hay informacion de las versiones especificas en el apartado de "engines".
